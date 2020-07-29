@@ -5,17 +5,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" content="Online service that optimize images (PNG, JPG, GIF, BMP and TIF) using lossless and lossy compression to shrink images to the minimum possible size while keeping the required level of quality. lossless compression keeps 100% quality of image.">
+    <meta name="keywords" content="'image optimizer', 'image compressor', image, images, picture, pictures, 'picture optimizer', 'picture compressor', 'image opimization', 'image compression'">
+    <meta name="author" content="Ankit Kumar Jat">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- <script src="https://kit.fontawesome.com/0c4c850759.js" crossorigin="anonymous"></script> -->
 
     <!-- My css -->
     <link rel="stylesheet" href="css/main.css">
 
     <!-- Title -->
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
     <title>Image Optimizer</title>
 </head>
 <body>
-    <h1>
-        Image Optimizer
-    </h1>
-    
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    Image Optimizer
+                </a>
+                <div class="navbar-toggler" id="navbarToggle">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <ul class="navbar-nav"  id="navbarManu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="jumbotron">
+        <div class="container">
+            <h1 class="fade-in">Welcome to Image Optimizer</h1>
+            <p class="fade-in1">A online web app that optimize your image (PNG, JPG, GIF, BMP and TIF) or picture file size in a very efficient way. Optimized images are better, They are more suitable for web pages, email attachments, or even storage on your disk.</p>
+            <p class="fade-in2"" id="warning"><strong>PAY ATTENTION:</strong> Please upload file size less than 5Mb. Our system will not accept file larger than 5Mb.</p>
+        </div>
+    </section>
+    <section class="drop-section fade-in3">
+        <div class="container input-area">
+            <div class="drop-area" id="dropArea">
+                <form class="box">
+                    <div class="center drop-area-content">
+                        <svg class="drop-img" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43"><path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path></svg>
+                        <br>
+                        <input type="file" name="files" id="file" class="input-file" data-multiple-caption="{count} images selected" accept="image/png, image/jpeg, image/bmp, image/gif, image/tiff">
+                        <label for="file"><strong class="choose">Choose a file</strong><span class="box-dragndrop"> or drag it here</span>.</label>
+                        <br>
+                        <a href="#warning">
+                            <button class="box-button" id="upload-btn" type="submit" hidden>Upload</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <div class="preview">
+                <img src="" alt="" class="preview-img" hidden>
+                <span class="preview-text">Image Preview</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="upload-bar">
+                <div class="upload-bar-fill">
+                    <span class="upload-bar-text">0.0%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="optimize"><!-- add hidden-->
+        <div class="container">
+            <div class="optimize-input" hidden><!-- remove hidden-->
+                <p class="success-note"></p>
+                <h3>Please choose the following and click Optimize button:</h3>
+                <div class="quality">
+                    <h4>Quality: <br>(Default value is strong 92) </h4>
+                    <input class="quality-slider" id="quality-slider" type="range" min="25" max="100" value="92">
+                    <p class="slider-value">92 %</p>
+                </div>
+                <div class="exif-data">
+                    <h4>Keep Exif-data: <br>(Default value is false) </h4>
+                    <input type="checkbox" class="exif-data-checkbox" id="exif-data-checkbox">
+                </div>
+                <button class="optimize-btn" id="optimize-btn" type="button">Optimize</button>
+            </div>
+            <div class="optimize-info"><!-- add hidden-->
+                <div class="opt-info">
+                    <p><strong>Original size: </strong><span class="src_size"></span></p>
+                    <p><strong>Optimized size: </strong><span class="dest_size"></span></p>
+                    <p><strong>Optimization percent: </strong><span class="percent"></span></p>
+                </div>
+                <a class="down-btn" download target="_blank">
+                    <button class="down-btn" id="down-opt-img">Download</button>
+                </a>
+                <div class="re-optimize-btn">
+                    <button class="opt-again">Optimize it again</button>
+                    <button class="choose-other">Choose another file</button>
+                </div>
+            </div>
+            <div class="preview-optimized">
+                <div class="preview-optimized-area">
+                    <img src="" alt="" class="preview-opt-img" hidden>
+                    <p class="loader" hidden></p>
+                    <span class="preview-text" id="opt-preview-text">Image Preview</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="learn-more-section">
+        <span class="hr"></span>
+        <div class="container">
+            <a class="learn-more" href="#"><strong>Learn more about image compression click here</strong></a>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <ul class="footer-manu">
+                <li class="footer-item"><p>&copy; Ankit Kumar Jat </p></li>
+                <li class="footer-item"><p>Made with &hearts; by <a href="#" class="footer-link">@ankit-kumar-jat</a></p></li>
+                <li class="footer-item right"><a href="#" class="footer-link"><p>Privacy</p></a></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- Js Libraries -->
+    <script src="js/jQuery.js" defer></script>
+    <!-- My scripts -->
+    <script src="js/main.js" defer></script>
 </body>
 </html>

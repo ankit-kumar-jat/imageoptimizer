@@ -1,6 +1,8 @@
 # ImageOptimizer
 
-Online service that optimize images (PNG, JPG, GIF, BMP and TIF) using lossless and lossy compression to shrink images to the minimum possible size while keeping the required level of quality. lossless compression keeps 100% quality of image.
+> Ankit Kumar Jat | 26 july 2020
+
+Online service that optimize images (PNG, JPG, GIF, BMP and TIF) using lossless and lossy compression to shrink images to the minimum possible file size while keeping the required level of quality. lossless compression keeps 100% quality of image.
 
 ## Key Features
 
@@ -13,7 +15,7 @@ Online service that optimize images (PNG, JPG, GIF, BMP and TIF) using lossless 
 
 ## Limitions
 
-limits its use to PNG, JPG, GIF, BMP and TIF pictures for FREE up to 5MB
+limits its use to PNG, JPG, GIF, BMP and TIF pictures up to 5MB
 
 ## Library Used
 
