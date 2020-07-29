@@ -115,7 +115,7 @@ document.getElementById('quality-slider').addEventListener('input', () => {
             $('.upload-bar').show('fast');
             var formData = new FormData();
             formData.append("image", input.files[0], input.files[0].name);
-            try{
+            // try{
                 var settings = {
                     xhr: function(){
                         var xhr = new window.XMLHttpRequest();
@@ -149,12 +149,24 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                         $('.optimize').show();
                     }
                 });
-            }catch(err){
-                alert("There is a network error while uploading Please try again");
-                $('.input-area').removeClass('is-uploading');
-                $('.upload-bar').hide('fast');
-            }
-            
+            // }catch(err){
+            //     alert("There is a network error while uploading Please try again");
+            //     $('.input-area').removeClass('is-uploading');
+            //     $('.upload-bar').hide('fast');
+            // }
+            //
+
+            // fetch api option(this is doing request using fetch api)
+            // var requestOptions = {
+            //     method: 'POST',
+            //     body: formData,
+            //     redirect: 'follow'
+            // };
+            // fetch("https://api.imgbb.com/1/upload?expiration=900&key=6c85110ba0694a845b5a15496dd035c4", requestOptions)
+            // .then(response => response.text())
+            // .then(result => console.log(result))
+            // .catch(error => console.log('error', error));
+            //fatch api finish
         });
     });
     function optimize(requestUrl){
@@ -174,35 +186,50 @@ document.getElementById('quality-slider').addEventListener('input', () => {
             "method": "POST",
             "timeout": 0
         };
-        $.ajax(settings).done(function (response) {
-            var respData = response;
-            console.log(respData);
-            $('.preview-opt-img').attr('src', respData.dest);
-            $('.down-btn').attr('href', respData.dest);
-            $('.preview-opt-img').show('slow');
-            $('.loader').hide();
-            $('.optimize-input').hide();
-            var src_size = (respData.src_size/1000).toFixed(2);
-            var dest_size = (respData.dest_size/1000).toFixed(2);
-            if (src_size > 1000){
-                src_size = (src_size/1000).toFixed(2) + ' Mb';
-                dest_size = (dest_size/1000).toFixed(2) + ' Mb';
-            }else{
-                src_size = src_size + ' Kb';
-                dest_size = dest_size + ' Kb';
-            }
-            if (respData.percent != 0){
-                var percent = respData.percent + ' %';
-                $('.src_size').html(src_size);
-                $('.dest_size').html(dest_size);
-                $('.percent').html(percent);
-                $('.optimize-info').show('slow');
-            }else{
-                var message = '<h4>No need of optimization, Image already optimized.</h4>';
-                $('.opt-info').html(message);
-                $('.optimize-info').show('slow');
-            }
-        });
+        // $.ajax(settings).done(function (response) {
+        //     var respData = response;
+        //     console.log(respData);
+        //     $('.preview-opt-img').attr('src', respData.dest);
+        //     $('.down-btn').attr('href', respData.dest);
+        //     $('.preview-opt-img').show('slow');
+        //     $('.loader').hide();
+        //     $('.optimize-input').hide();
+        //     var src_size = (respData.src_size/1000).toFixed(2);
+        //     var dest_size = (respData.dest_size/1000).toFixed(2);
+        //     if (src_size > 1000){
+        //         src_size = (src_size/1000).toFixed(2) + ' Mb';
+        //         dest_size = (dest_size/1000).toFixed(2) + ' Mb';
+        //     }else{
+        //         src_size = src_size + ' Kb';
+        //         dest_size = dest_size + ' Kb';
+        //     }
+        //     if (respData.percent != 0){
+        //         var percent = respData.percent + ' %';
+        //         $('.src_size').html(src_size);
+        //         $('.dest_size').html(dest_size);
+        //         $('.percent').html(percent);
+        //         $('.optimize-info').show('slow');
+        //     }else{
+        //         var message = '<h4>No need of optimization, Image already optimized.</h4>';
+        //         $('.opt-info').html(message);
+        //         $('.optimize-info').show('slow');
+        //     }
+        // });
+
+        ///
+
+        ///request using fatch api 
+        //fetch api 
+        var requestOptions = {
+            method: 'POST',
+            redirect: 'follow'
+        };
+          
+        fetch(requestUrl, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+        //fetch api finish
     }
     $('#optimize-btn').click( function (){
         $('#optimize-btn').hide();
