@@ -186,49 +186,49 @@ document.getElementById('quality-slider').addEventListener('input', () => {
             "method": "POST",
             "timeout": 0
         };
-        // $.ajax(settings).done(function (response) {
-        //     var respData = response;
-        //     console.log(respData);
-        //     $('.preview-opt-img').attr('src', respData.dest);
-        //     $('.down-btn').attr('href', respData.dest);
-        //     $('.preview-opt-img').show('slow');
-        //     $('.loader').hide();
-        //     $('.optimize-input').hide();
-        //     var src_size = (respData.src_size/1000).toFixed(2);
-        //     var dest_size = (respData.dest_size/1000).toFixed(2);
-        //     if (src_size > 1000){
-        //         src_size = (src_size/1000).toFixed(2) + ' Mb';
-        //         dest_size = (dest_size/1000).toFixed(2) + ' Mb';
-        //     }else{
-        //         src_size = src_size + ' Kb';
-        //         dest_size = dest_size + ' Kb';
-        //     }
-        //     if (respData.percent != 0){
-        //         var percent = respData.percent + ' %';
-        //         $('.src_size').html(src_size);
-        //         $('.dest_size').html(dest_size);
-        //         $('.percent').html(percent);
-        //         $('.optimize-info').show('slow');
-        //     }else{
-        //         var message = '<h4>No need of optimization, Image already optimized.</h4>';
-        //         $('.opt-info').html(message);
-        //         $('.optimize-info').show('slow');
-        //     }
-        // });
+        $.ajax(settings).done(function (response) {
+            var respData = response;
+            console.log(respData);
+            $('.preview-opt-img').attr('src', respData.dest);
+            $('.down-btn').attr('href', respData.dest);
+            $('.preview-opt-img').show('slow');
+            $('.loader').hide();
+            $('.optimize-input').hide();
+            var src_size = (respData.src_size/1000).toFixed(2);
+            var dest_size = (respData.dest_size/1000).toFixed(2);
+            if (src_size > 1000){
+                src_size = (src_size/1000).toFixed(2) + ' Mb';
+                dest_size = (dest_size/1000).toFixed(2) + ' Mb';
+            }else{
+                src_size = src_size + ' Kb';
+                dest_size = dest_size + ' Kb';
+            }
+            if (respData.percent != 0){
+                var percent = respData.percent + ' %';
+                $('.src_size').html(src_size);
+                $('.dest_size').html(dest_size);
+                $('.percent').html(percent);
+                $('.optimize-info').show('slow');
+            }else{
+                var message = '<h4>No need of optimization, Image already optimized.</h4>';
+                $('.opt-info').html(message);
+                $('.optimize-info').show('slow');
+            }
+        });
 
         ///
 
         ///request using fatch api 
         //fetch api 
-        var requestOptions = {
-            method: 'POST',
-            redirect: 'follow'
-        };
+        // var requestOptions = {
+        //     method: 'POST',
+        //     redirect: 'follow'
+        // };
           
-        fetch(requestUrl, requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+        // fetch(requestUrl, requestOptions)
+        //     .then(response => response.text())
+        //     .then(result => console.log(result))
+        //     .catch(error => console.log('error', error));
         //fetch api finish
     }
     $('#optimize-btn').click( function (){

@@ -5,6 +5,8 @@ body{
     min-height: 100vh;
     background-color: rgba(214, 214, 214, .1);
     color: #3c3c3c;
+    display: flex;
+    flex-direction: column;
 }
 p{
     font-size: 1.3rem;
@@ -19,6 +21,7 @@ h4{
     font-weight: 400;
 }
 footer{
+    margin-top: auto;
     box-shadow: 2px 0 5px gray;
     background-color: white;
 }
@@ -219,6 +222,39 @@ label[for='file']{
     margin-top: 2rem;
     color: rgb(116, 116, 116);
 }
+.exif-data{
+    display: flex;
+    align-items: center;
+}
+.checkbox-text{
+    cursor: pointer;
+}
+.checkbox{
+    cursor: pointer;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid gray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+    transition: background .2s , border-color .2s;
+}
+.checkbox::after{
+    font-size: 1.5rem;
+    content: "\2714";
+    color: #fff;
+    transform: scale(0);
+    transition: transform .2s;
+}
+.exif-data-checkbox:checked + .checkbox{
+    background-color: #0053bf;
+    border-color:  #0053bf;
+}
+.exif-data-checkbox:checked + .checkbox::after{
+    transform: scale(1);
+}
 
 /* Loader */
 .loader {
@@ -231,16 +267,7 @@ label[for='file']{
     animation: spin 1s linear infinite;
 }
   
-  /* Safari */
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-  
- @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+
 /* Footer */
 .learn-more-section{
     margin-top: 10%;
@@ -273,12 +300,23 @@ a.footer-link{
 .container{
     padding: 0 5vw;
 }
+.active > a{
+    color: #0053bf;
+}
 .hr{
     width: 100%;
     height: 1px;
     background-color: darkgray;
     display: block;
 }
+/* scroolBar */
+    /* for chrome(-webkit) */
+/* ::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-button{
+    
+} */
 /* State selectors */
 .learn-more:hover,
 a.footer-link:hover,
@@ -292,6 +330,10 @@ a.footer-link:hover,
 .box-button:hover{
     background-color: #217ffa;
 }
+.checkbox:hover{
+    background-color: #ebebeb;
+}
+
 
 /* Animation  */
 .fade-in {
@@ -310,16 +352,23 @@ a.footer-link:hover,
 .fade-in3{
     animation: fadeIn ease-in-out 2s .6;
 }
+  /* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 @keyframes fadeIn {
     0% {
         opacity:0;
-        transform: translateX(1%);
-    }
-    2%{
         transform: translateX(-1%);
-        opacity:0;
     }
-    80% {
+    80%{
+        transform: translateX(0%);
         opacity: .5;
     }
     100% {
@@ -385,6 +434,22 @@ a.footer-link:hover,
         min-height: 330px;
     }
 }
+@media (max-width: 692px){
+    /* footer */
+    footer{
+        padding-bottom: 1.5rem;
+    }
+    .footer-item > p{
+        margin-bottom: 0;
+    }
+    .footer-manu{
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-item{
+        margin: auto;
+    }
+}
 @media (max-width: 575.98px) {
     /* navbar */
     .navbar-brand{
@@ -432,20 +497,7 @@ a.footer-link:hover,
 
 
 
-    /* footer */
-    footer{
-        padding-bottom: 1.5rem;
-    }
-    .footer-item > p{
-        margin-bottom: 0;
-    }
-    .footer-manu{
-        flex-direction: column;
-        text-align: center;
-    }
-    .footer-item{
-        margin: auto;
-    }
+   
 }
 
 /* .drop-section{
