@@ -62,7 +62,7 @@ button{
 }
 .nav-link{
     text-decoration: none;
-    margin: 1rem;
+    margin: 1rem 0 1rem 1rem;
     color: #3c3c3c;
 }
 /* Jumbotron */
@@ -136,7 +136,7 @@ label[for='file']{
     display: flex;
 }
 .preview{
-    margin: 0 3%;
+    margin: 0 0 0 3%;
     width: 40%;
     height: 333px;
     box-sizing: border-box;
@@ -285,10 +285,9 @@ label[for='file']{
     margin: 0;
     padding: 0;
 }
-.footer-item{
+.footer-item:not(:last-child){
     display: inline;
     margin-right: 1.5rem;
-    display: flex;
 }
 .footer-item.right{
     margin-left: auto;
@@ -444,9 +443,9 @@ a.footer-link:hover,
     }
     .footer-manu{
         flex-direction: column;
-        text-align: center;
+        align-items: center;
     }
-    .footer-item{
+    .footer-item:last-child{
         margin: auto;
     }
 }
@@ -496,9 +495,13 @@ a.footer-link:hover,
     /* OPtimize Section */
 
 
-
+    .footer-item:not(:last-child){
+        text-align: center;
+        margin-right: 0;
+    }
    
 }
+
 
 /* .drop-section{
     display: none;

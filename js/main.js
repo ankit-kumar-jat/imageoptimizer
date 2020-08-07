@@ -12,11 +12,13 @@ $('#navbarToggle').click(() => {
         });
     }
 });
-$('#navbarToggle').blur(() => {
-    $('.navbar-nav').slideUp("slow", () => {
-        console.log("also run");
-        click = 1;
-    });
+$('section').click(() => {
+    if (click === 0){
+        $('.navbar-nav').slideUp("slow", () => {
+            console.log("also run");
+            click = 1;
+        });
+    }
 });
 // animation
 

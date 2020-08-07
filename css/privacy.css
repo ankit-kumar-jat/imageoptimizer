@@ -62,7 +62,7 @@ button{
 }
 .nav-link{
     text-decoration: none;
-    margin: 1rem;
+    margin: 1rem 0 1rem 1rem;
     color: #3c3c3c;
 }
 
@@ -74,10 +74,9 @@ button{
     margin: 0;
     padding: 0;
 }
-.footer-item{
+.footer-item:not(:last-child){
     display: inline;
     margin-right: 1.5rem;
-    display: flex;
 }
 .footer-item.right{
     margin-left: auto;
@@ -108,9 +107,9 @@ a.footer-link:hover,
     }
     .footer-manu{
         flex-direction: column;
-        text-align: center;
+        align-items: center;
     }
-    .footer-item{
+    .footer-item:last-child{
         margin: auto;
     }
 }
@@ -149,5 +148,9 @@ a.footer-link:hover,
     .nav-item{
         margin: 0;
         padding-bottom: 1rem;
+    }
+    .footer-item:not(:last-child){
+        text-align: center;
+        margin-right: 0;
     }
 }
