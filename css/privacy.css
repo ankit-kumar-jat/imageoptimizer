@@ -88,6 +88,13 @@ a.footer-link{
 .container{
     padding: 0 5vw;
 }
+.hr{
+    width: 100%;
+    height: 1px;
+    background-color: darkgray;
+    display: block;
+    border: none;
+}
 .active > a{
     color: #0053bf;
 }
