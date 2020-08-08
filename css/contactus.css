@@ -123,6 +123,7 @@ textarea{
     font-size: 1.3rem;
     margin: 0 0 1rem 0;
     display: flex;
+    max-width: 542px;
 }
 .form-group > label{
     flex-basis: 10rem;

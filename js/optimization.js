@@ -162,7 +162,15 @@ document.getElementById('quality-slider').addEventListener('input', () => {
             // },
             "url": requestUrl,
             "method": "POST",
-            "timeout": 0
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "data": {
+                "url": window.imageUrl,
+                "quality": "100",
+                "exif_data": "true"
+            }
         };
         $.ajax(settings).done(function (response) {
             var respData = response;
@@ -186,6 +194,7 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                 $('.src_size').html(src_size);
                 $('.dest_size').html(dest_size);
                 $('.percent').html(percent);
+                $('.expires').html(respData.expires)
                 $('.optimize-info').show('slow');
             }else{
                 var message = '<h4>No need of optimization, Image already optimized.</h4>';
@@ -214,7 +223,7 @@ document.getElementById('quality-slider').addEventListener('input', () => {
         $('#opt-preview-text').hide();
         $('.loader').show();
         console.log("clicked");
-        requestUrl = "http://api.resmush.it/ws.php?img=" + window.imageUrl;
+        requestUrl = "https://api-for-image-optimizer.glitch.me/"
         if(window.sliderValue != 92){
             requestUrl += "&qlty=" + window.sliderValue;
         }

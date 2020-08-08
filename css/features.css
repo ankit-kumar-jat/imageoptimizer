@@ -13,8 +13,8 @@ p{
 }
 h2{
     color: #217ffa;
-    font-size: 2rem;
-    margin-top: 0;
+    margin-bottom: 0;
+    margin-top: 2rem;
 }
 h4{
     font-size: 1.5rem;
@@ -65,7 +65,34 @@ button{
     margin: 1rem 0 1rem 1rem;
     color: #3c3c3c;
 }
-
+/* Features */
+.features{
+    padding-bottom: 2rem;
+}
+.container > p{
+    margin-top: .4rem;
+}
+.features > p > strong{
+    color: #757575;
+}
+.example-imgs{
+    display: flex;
+}
+.example-imgs > img{
+    max-width: 600px;
+}
+.example-imgs > img:last-child{
+    margin-left: auto;
+}
+.space{
+    width: 10px;
+    height: 10px;
+}
+.img-data{
+    font-size: .9rem;
+    text-align: center;
+    margin-top: .3rem;
+}
 
 /* Footer */
 .footer-manu{
@@ -88,6 +115,13 @@ a.footer-link{
 .container{
     padding: 0 5vw;
 }
+.hr{
+    width: 100%;
+    height: 1px;
+    background-color: darkgray;
+    display: block;
+    border: none;
+}
 .active > a{
     color: #0053bf;
 }
@@ -97,7 +131,17 @@ a.footer-link:hover,
 .nav-link:hover{
     color: #0053bf;
 }
-
+@media (max-width: 991.98px) {
+    .example-imgs{
+        flex-direction: column;
+    }
+}
+@media (max-width: 751px){
+    .example-imgs > img{
+        margin: auto;
+        max-width: 100%;
+    }
+}
 @media (max-width: 692px){
     /* footer */
     footer{

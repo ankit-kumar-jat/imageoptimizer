@@ -59,8 +59,8 @@
                         <input type="file" name="files" id="file" class="input-file" data-multiple-caption="{count} images selected" accept="image/png, image/jpeg, image/bmp, image/gif, image/tiff">
                         <label for="file"><strong class="choose">Choose a file</strong><span class="box-dragndrop"> or drag it here</span>.</label>
                         <br>
-                        <a href="#warning">
-                            <button class="box-button" id="upload-btn" type="submit" hidden>Upload</button>
+                        <a href="#warning" class="up-btn">
+                            <button class="box-button" id="upload-btn" hidden>Upload</button>
                         </a>
                     </div>
                 </form>
@@ -84,7 +84,7 @@
                 <p class="success-note"></p>
                 <h3>Please choose the following and click Optimize button:</h3>
                 <div class="quality">
-                    <h4>Quality: <br>(Default value is strong 92) </h4>
+                    <h4>Quality: <br>(Default value is 92) </h4>
                     <input class="quality-slider" id="quality-slider" type="range" min="25" max="100" value="92">
                     <p class="slider-value">92 %</p>
                 </div>
@@ -102,6 +102,7 @@
                     <p><strong>Original size: </strong><span class="src_size"></span></p>
                     <p><strong>Optimized size: </strong><span class="dest_size"></span></p>
                     <p><strong>Optimization percent: </strong><span class="percent"></span></p>
+                    <p><strong>Deleted on: </strong><span class="expires"></span></p>
                 </div>
                 <a class="down-btn" download target="_blank">
                     <button class="down-btn" id="down-opt-img">Download</button>
@@ -139,6 +140,6 @@
     <script src="js/jQuery.js" defer></script>
     <!-- My scripts -->
     <script src="js/main.js" defer></script>
-    <script src="js/optimization.js"></script>
+    <script src="js/optimization.js" defer></script>
 </body>
 </html>
