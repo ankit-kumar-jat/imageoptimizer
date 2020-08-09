@@ -168,15 +168,15 @@ document.getElementById('quality-slider').addEventListener('input', () => {
             },
             "data": {
                 "url": window.imageUrl,
-                "quality": "100",
-                "exif_data": "true"
+                "quality": window.quality,
+                "exif_data": window.exif_data
             }
         };
         $.ajax(settings).done(function (response) {
             var respData = response;
             console.log(respData);
             $('.preview-opt-img').attr('src', respData.dest);
-            $('.down-btn').attr('href', respData.dest);
+            $('.down-btn-anchor').attr('href', respData.dest);
             $('.preview-opt-img').show('slow');
             $('.loader').hide();
             $('.optimize-input').hide();
@@ -225,10 +225,10 @@ document.getElementById('quality-slider').addEventListener('input', () => {
         console.log("clicked");
         requestUrl = "https://api-for-image-optimizer.glitch.me/"
         if(window.sliderValue != 92){
-            requestUrl += "&qlty=" + window.sliderValue;
+            window.quality =  window.sliderValue;
         }
         if($('#exif-data-checkbox').is(':checked')){
-            requestUrl += "&exif=true"
+            window.exif_data = 1;
         }
         optimize(requestUrl);
     });

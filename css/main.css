@@ -261,6 +261,31 @@ label[for='file']{
 .exif-data-checkbox:checked + .checkbox::after{
     transform: scale(1);
 }
+.opt-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.down-btn-anchor{
+    margin: 0 1rem 1rem 0;
+}
+.down-btn{
+    margin: 0;
+    min-width: 200px;
+    max-width: 200px;
+    border-radius: 32px;
+    cursor: pointer;
+}
+.opt-again{
+    min-width: 200px;
+    border-radius: 32px;
+    cursor: pointer;
+}
+.choose-other{
+    min-width: 200px;
+    border-radius: 32px;
+    cursor: pointer;
+}
 
 /* Loader */
 .loader {
@@ -331,6 +356,11 @@ a.footer-link:hover,
 .choose:hover{
     color: #4093ff;
 }
+.down-btn:hover,.down-btn:focus,
+.opt-again:hover,.opt-again:focus,
+.choose-other:hover,.choose-other:focus{
+    background-color: #4093ff;
+}
 .optimize-btn:hover,
 .box-button:hover{
     background-color: #217ffa;
@@ -342,20 +372,20 @@ a.footer-link:hover,
 
 /* Animation  */
 .fade-in {
-    animation: fadeIn ease-in-out 2s .3;
+    animation: fadeIn ease-in-out 1s .3;
     /* -webkit-animation: fadeIn ease 3s;
     -moz-animation: fadeIn ease 3s;
     -o-animation: fadeIn ease 3s;
     -ms-animation: fadeIn ease 3s; */
 }
 .fade-in1{
-    animation: fadeIn ease-in-out 2s .4;
+    animation: fadeIn ease-in-out 1s .4;
 }
 .fade-in2{
-    animation: fadeIn ease-in-out 2s .5;
+    animation: fadeIn ease-in-out 1s .5;
 }
 .fade-in3{
-    animation: fadeIn ease-in-out 2s .6;
+    animation: fadeIn ease-in-out 1s .6;
 }
   /* Safari */
 @-webkit-keyframes spin {
@@ -499,7 +529,10 @@ a.footer-link:hover,
         width: 100%;
     }
     /* OPtimize Section */
-
+    .opt-buttons{
+        align-items: center;
+        text-align: center;
+    }
 
     .footer-item:not(:last-child){
         text-align: center;
