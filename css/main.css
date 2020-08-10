@@ -33,6 +33,7 @@ button{
     font-size: 1.2rem;
     margin: 0rem 1rem 1rem 0;
     color: #fff;
+    text-transform: uppercase;
 }
 /* Class selectors */
 /* Navbar */
@@ -129,6 +130,7 @@ label[for='file']{
     cursor: pointer;
 }
 .up-btn{
+    margin-bottom: 1rem;
     text-decoration: none;
 }
 .inputfile:focus + label {
@@ -282,6 +284,7 @@ label[for='file']{
     cursor: pointer;
 }
 .choose-other{
+    text-transform: capitalize;
     min-width: 200px;
     border-radius: 32px;
     cursor: pointer;

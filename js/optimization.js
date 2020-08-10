@@ -93,7 +93,6 @@ document.getElementById('quality-slider').addEventListener('input', () => {
             $('.upload-bar').show('fast');
             var formData = new FormData();
             formData.append("image", input.files[0], input.files[0].name);
-            // try{
                 var settings = {
                     xhr: function(){
                         var xhr = new window.XMLHttpRequest();
@@ -121,45 +120,23 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                         var successNote = "Upload Completed !"
                         $('.success-note').html(successNote);
                         window.imageUrl = respData.data.image.url;
-                        console.log(window.imageUrl);
+                        // console.log(window.imageUrl);
                         $('.upload-bar').hide('slow');
                         $('.drop-section').hide();
                         $('.optimize').show();
                     }
+                    })
+                .fail(function(response) {
+                    console.log(response.responseText);
+                    alert("There is a network error while uploading Please try again. It can be hepppe due to wrong file format");
+                    location.reload();
+                    // $('.input-area').removeClass('is-uploading');
+                    // $('.upload-bar').hide('fast');
                 });
-            // }catch(err){
-            //     alert("There is a network error while uploading Please try again");
-            //     $('.input-area').removeClass('is-uploading');
-            //     $('.upload-bar').hide('fast');
-            // }
-            //
-
-            // fetch api option(this is doing request using fetch api)
-            // var requestOptions = {
-            //     method: 'POST',
-            //     body: formData,
-            //     redirect: 'follow'
-            // };
-            // fetch("https://api.imgbb.com/1/upload?expiration=900&key=6c85110ba0694a845b5a15496dd035c4", requestOptions)
-            // .then(response => response.text())
-            // .then(result => console.log(result))
-            // .catch(error => console.log('error', error));
-            //fatch api finish
         });
     });
     function optimize(requestUrl){
         var settings = {
-            // xhr: function(){
-            //     var xhr = new window.XMLHttpRequest();
-            //     //Upload progress
-            //     xhr.upload.addEventListener("progress", function(evt){
-            //         if (evt.lengthComputable) {
-            //             var percentComplete = (evt.loaded / evt.total*100).toFixed(2) + '%';
-            //             $('#opt-img-preview').html(percentComplete);
-            //         }
-            //     }, false);
-            //     return xhr;
-            // },
             "url": requestUrl,
             "method": "POST",
             "timeout": 0,
@@ -173,8 +150,12 @@ document.getElementById('quality-slider').addEventListener('input', () => {
             }
         };
         $.ajax(settings).done(function (response) {
-            var respData = response;
-            console.log(respData);
+            if (response.error){
+                alert(response.error_long);
+                location.reload();
+            }else{
+                var respData = response;
+            // console.log(respData);
             $('.preview-opt-img').attr('src', respData.dest);
             $('.down-btn-anchor').attr('href', respData.dest);
             $('.preview-opt-img').show('slow');
@@ -201,28 +182,18 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                 $('.opt-info').html(message);
                 $('.optimize-info').show('slow');
             }
+            }
+        })
+        .fail(function() {
+            alert("There is an error while connectiong to optimization server, Please try again.");
+            location.reload();
         });
-
-        ///
-
-        ///request using fatch api 
-        //fetch api 
-        // var requestOptions = {
-        //     method: 'POST',
-        //     redirect: 'follow'
-        // };
-          
-        // fetch(requestUrl, requestOptions)
-        //     .then(response => response.text())
-        //     .then(result => console.log(result))
-        //     .catch(error => console.log('error', error));
-        //fetch api finish
     }
     $('#optimize-btn').click( function (){
         $('#optimize-btn').hide();
         $('#opt-preview-text').hide();
         $('.loader').show();
-        console.log("clicked");
+        // console.log("clicked");
         requestUrl = "https://api-for-image-optimizer.glitch.me/"
         if(window.sliderValue != 92){
             window.quality =  window.sliderValue;
