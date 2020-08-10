@@ -128,7 +128,7 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                     })
                 .fail(function(response) {
                     console.log(response.responseText);
-                    alert("There is a network error while uploading Please try again. It can be hepppe due to wrong file format");
+                    alert("There is a network error while uploading Please try again. It can be happened due to wrong file format");
                     location.reload();
                     // $('.input-area').removeClass('is-uploading');
                     // $('.upload-bar').hide('fast');
