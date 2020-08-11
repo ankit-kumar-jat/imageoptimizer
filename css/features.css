@@ -73,13 +73,18 @@ button{
     margin-top: .4rem;
 }
 .features > p > strong{
-    color: #757575;
+    color: #3c3c3c;
+    opacity: .7;
 }
 .example-imgs{
     display: flex;
+    width: 100%;
+    flex: 1 1 auto;
 }
 .example-imgs > img{
-    max-width: 600px;
+    min-width: 0px;
+    max-width: calc(50% - 5px);
+    display: block;
 }
 .example-imgs > img:last-child{
     margin-left: auto;
@@ -132,6 +137,9 @@ a.footer-link:hover,
     color: #0053bf;
 }
 @media (max-width: 991.98px) {
+    .example-imgs > img{
+        max-width: 600px;
+    }
     .example-imgs{
         flex-direction: column;
     }

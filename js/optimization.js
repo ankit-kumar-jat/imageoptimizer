@@ -119,6 +119,7 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                     if (respData.success){
                         var successNote = "Upload Completed !"
                         $('.success-note').html(successNote);
+                        window.src_size = respData.data.size;
                         window.imageUrl = respData.data.image.url;
                         // console.log(window.imageUrl);
                         $('.upload-bar').hide('slow');
@@ -136,6 +137,8 @@ document.getElementById('quality-slider').addEventListener('input', () => {
         });
     });
     function optimize(requestUrl){
+
+        // ajax for image optimization
         var settings = {
             "url": requestUrl,
             "method": "POST",
@@ -157,11 +160,11 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                 var respData = response;
             // console.log(respData);
             $('.preview-opt-img').attr('src', respData.dest);
-            $('.down-btn-anchor').attr('href', respData.dest);
+            window.download_url = respData.dest;
             $('.preview-opt-img').show('slow');
             $('.loader').hide();
             $('.optimize-input').hide();
-            var src_size = (respData.src_size/1000).toFixed(2);
+            var src_size = (window.src_size/1000).toFixed(2);
             var dest_size = (respData.dest_size/1000).toFixed(2);
             if (src_size > 1000){
                 src_size = (src_size/1000).toFixed(2) + ' Mb';
@@ -204,3 +207,36 @@ document.getElementById('quality-slider').addEventListener('input', () => {
         optimize(requestUrl);
     });
 }( document, window, 0 ));
+
+// download feature
+function forceDownload(blob, filename) {
+    var a = document.createElement('a');
+    var filenameArray = filename.split('.');
+    var newFilename = filenameArray[0] + '-optimized.' + filenameArray[1]; 
+    a.download = newFilename;
+    a.href = blob;
+
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}
+  
+  // Current blob size limit is around 500MB for browsers
+function downloadResource(url, filename) {
+    if (!filename) filename = url.split('\\').pop().split('/').pop();
+    fetch(url, {
+        headers: new Headers({
+          'Origin': location.origin
+        }),
+        mode: 'cors'
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        let blobUrl = window.URL.createObjectURL(blob);
+        forceDownload(blobUrl, filename);
+    })
+    .catch(e => console.error(e));
+}
+$(".down-btn").click(() => {
+    downloadResource(window.download_url);
+});
