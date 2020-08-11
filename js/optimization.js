@@ -36,6 +36,9 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                     if((files[0].size/1000) < 5000){
                         //(input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) to show multiple files put it on next line
                         label.textContent = files.length > 1 ? ( alert("Only one file can be selected at a time"), file[0].name) : files[ 0 ].name;
+                        if (files.length > 0){
+                            label.setAttribute("class", "image-name");
+                        }
                         $('.box-button').show();
                         var file = files[0];
                         if (file){

@@ -529,6 +529,9 @@ a.footer-link:hover,
     .upload-bar{
         width: 100%;
     }
+    .image-name{
+        font-size: 1rem;
+    }
     /* OPtimize Section */
     .opt-buttons{
         align-items: center;
