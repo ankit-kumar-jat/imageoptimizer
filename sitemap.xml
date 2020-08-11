@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://ankit-kumar-jat.github.io/imageoptimizer/</loc>
+  <lastmod>2020-08-11T11:36:23+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ankit-kumar-jat.github.io/imageoptimizer/features.html</loc>
+  <lastmod>2020-08-11T11:36:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankit-kumar-jat.github.io/imageoptimizer/contactus.html</loc>
+  <lastmod>2020-08-11T11:36:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankit-kumar-jat.github.io/imageoptimizer/index.html</loc>
+  <lastmod>2020-08-11T11:36:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankit-kumar-jat.github.io/imageoptimizer/privacy.html</loc>
+  <lastmod>2020-08-11T11:36:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+</urlset>
