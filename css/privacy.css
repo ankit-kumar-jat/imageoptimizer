@@ -7,6 +7,7 @@ body{
     color: #3c3c3c;
     display: flex;
     flex-direction: column;
+    scroll-behavior: smooth;
 }
 p{
     font-size: 1.3rem;
@@ -97,6 +98,7 @@ a.footer-link{
 a.footer-link:hover,
 .nav-link:hover{
     color: #0053bf;
+    transition: ease .4s;
 }
 @media (max-width: 692px){
     /* footer */

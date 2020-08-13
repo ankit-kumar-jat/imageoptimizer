@@ -11,6 +11,7 @@ body{
     color: #3c3c3c;
     display: flex;
     flex-direction: column;
+    scroll-behavior: smooth;
 }
 p{
     font-size: 1.3rem;
@@ -188,17 +189,21 @@ a.footer-link{
 a.footer-link:hover,
 .nav-link:hover{
     color: #0053bf;
+    transition: ease .4s;
 }
 input[type="text"]:hover, [type="email"]:hover, textarea:hover,
 input[type="text"]:focus, [type="email"]:focus, textarea:focus{
     box-shadow: 0 0 2px #0053bf;
     border-color: #0053bf;
+    transition: ease .4s;
 }
 input[type="text"]:invalid, [type="email"]:invalid, textarea:invalid{
     border-color: #e03a3a;
+    transition: ease .4s;
 }
 button:hover{
     background-color: #4093ff;
+    transition: ease .5s;
 }
 button:focus{
     box-sizing: border-box;
@@ -206,6 +211,7 @@ button:focus{
     -webkit-box-sizing: border-box;
     border: 3px solid rgba(0, 0, 0, .2);
     box-shadow: 0 0 2px #0053bf;
+    transition: ease .5s;
 }
 
 @media (max-width: 992px){

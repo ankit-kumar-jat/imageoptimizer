@@ -28,8 +28,8 @@ document.getElementById('quality-slider').addEventListener('input', () => {
     {
         var input		 = form.querySelector( 'input[type="file"]' ),
             label		 = form.querySelector( 'label' ),
-            errorMsg	 = form.querySelector( '.box_error span' ),
-            restart		 = form.querySelectorAll( '.box_restart' ), 
+            // errorMsg	 = form.querySelector( '.box_error span' ),
+            // restart		 = form.querySelectorAll( '.box_restart' ), 
             droppedFiles = false,
             showFiles	 = function( files ){
                 // if (files.length < 1){
@@ -44,7 +44,7 @@ document.getElementById('quality-slider').addEventListener('input', () => {
                         if (file){
                             const reader = new FileReader();
                             previewText.style.display = 'none';
-                            previewImg.style.display = 'block';
+                            $(".preview-img").show('slow');
                             reader.addEventListener('load', () => {
                                 previewImg.setAttribute('src', reader.result);
                             });

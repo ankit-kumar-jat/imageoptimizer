@@ -8,6 +8,7 @@ body{
     color: #3c3c3c;
     display: flex;
     flex-direction: column;
+    scroll-behavior: smooth;
 }
 p{
     font-size: 1.3rem;
@@ -341,30 +342,28 @@ a.footer-link{
     display: block;
 }
 /* scroolBar */
-    /* for chrome(-webkit) */
-/* ::-webkit-scrollbar{
-    width: 10px;
-}
-::-webkit-scrollbar-button{
-    
-} */
+
 /* State selectors */
 .learn-more:hover,
 a.footer-link:hover,
 .nav-link:hover{
     color: #0053bf;
+    transition: ease .4s;
 }
 .choose:hover{
     color: #4093ff;
+    transition: ease .4s;
 }
 .down-btn:hover,.down-btn:focus,
 .opt-again:hover,.opt-again:focus,
 .choose-other:hover,.choose-other:focus{
     background-color: #4093ff;
+    transition: ease .4s;
 }
 .optimize-btn:hover,
 .box-button:hover{
     background-color: #217ffa;
+    transition: ease .4s;
 }
 .checkbox:hover{
     background-color: #ebebeb;
@@ -373,20 +372,20 @@ a.footer-link:hover,
 
 /* Animation  */
 .fade-in {
-    animation: fadeIn ease-in 1s .3;
+    animation: fadeIn ease 1s .3;
     /* -webkit-animation: fadeIn ease 3s;
     -moz-animation: fadeIn ease 3s;
     -o-animation: fadeIn ease 3s;
     -ms-animation: fadeIn ease 3s; */
 }
 .fade-in1{
-    animation: fadeIn ease-in 1s .4;
+    animation: fadeIn ease 1s .4;
 }
 .fade-in2{
-    animation: fadeIn ease-in 1s .5;
+    animation: fadeIn ease 1s .4;
 }
 .fade-in3{
-    animation: fadeIn ease-in 1s .6;
+    animation: fadeIn ease 1s .5;
 }
   /* Safari */
 @-webkit-keyframes spin {
@@ -401,13 +400,14 @@ a.footer-link:hover,
 @keyframes fadeIn {
     0% {
         opacity:0;
-        transform: translateX(-1%);
+        transform: translateY(5%);
     }
     80%{
-        transform: translateX(0%);
+        transform: translateY(2%);
         opacity: .5;
     }
     100% {
+        transform: translateY(0%);
         opacity:1;
     }
 }
