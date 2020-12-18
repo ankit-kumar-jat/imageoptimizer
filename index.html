@@ -7,6 +7,11 @@
     <meta name="Description" content="Online service that optimize images (PNG, JPG, GIF, BMP and TIF) using lossless and lossy compression to shrink images to the minimum possible size while keeping the required level of quality. lossless compression keeps 100% quality of image.">
     <meta name="keywords" content="'image optimizer', 'image compressor', image, images, picture, pictures, 'picture optimizer', 'picture compressor', 'image opimization', 'image compression'">
     <meta name="author" content="Ankit Kumar Jat">
+    <!-- Icons and manifest -->
+    <link rel="apple-touch-icon" href="/assets/icons-192.png">
+    <meta name="theme-color" content="#fff"/>
+    <meta name="apple-mobile-web-app-status-bar" content="#fff">
+    <link rel="manifest" href="/manifest.webmanifest">
     <!-- Preload -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="preload preconnect" as="style">
     <link rel="preload" href="css/main.css" as="style">
@@ -20,12 +25,34 @@
     <!-- Title -->
     <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
     <title>Image Optimizer</title>
+    <!-- scripts -->
+    <script>
+        if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+        navigator.serviceWorker.register("/sw.js").then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+    }
+    let refreshing;
+    // The event listener that is fired when the service worker updates
+    // Here we reload the page
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (refreshing) return;
+      window.location.reload();
+      refreshing = true;
+    });
+    </script>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="./index.html">
                     Image Optimizer
                 </a>
                 <div class="navbar-toggler" id="navbarToggle">

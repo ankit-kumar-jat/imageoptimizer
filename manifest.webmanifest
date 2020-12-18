@@ -1,0 +1,30 @@
+{
+  "short_name": "ImgOpti",
+  "name": "ImageOptimizer",
+  "description": "optimize images (PNG, JPG, GIF, BMP and TIF) to the minimum possible size while keeping the required level of quality.",
+  "icons": [
+    {
+      "src": "/assets/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons-1024.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#fff"
+}
