@@ -1,5 +1,5 @@
 // servie worker
-const cache_Name = "pwa-imageoptimizer-v1.0.03";
+const cache_Name = "pwa-imageoptimizer-v1.0.04";
 
 const staticAssets = [
     '/',
@@ -63,7 +63,7 @@ self.addEventListener('activate', function (event) {
                     // but remember that caches are shared across
                     // the whole origin
                 }).map(function (cacheName) {
-                    if (cache_Name != cacheName && cacheName.startsWith("pwa-conf")) {
+                    if (cache_Name != cacheName && cacheName.startsWith("pwa-imageoptimizer")) {
                         return caches.delete(cacheName);
                     }
                 })
